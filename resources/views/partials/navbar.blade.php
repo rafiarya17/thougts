@@ -3,23 +3,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light  p-3 mb-5 rounded" style="background-color: #e8ada6; box-shadow: 0 0rem 1rem rgba(0,0,0,1); ">
   <div class="container">
   {{-- <div class="container-fluid"> --}}
-    <a class="navbar-brand" href="/" style="font-size: 32px; font-weight: 900; line-height: 39px; font-style: normal;">.THOUGHTS</a>
+    <a class="navbar-brand" href="/blog" style="font-size: 32px; font-weight: 900; line-height: 39px; font-style: normal;">.THOUGHTS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
       <ul class="navbar-nav  mb-2 mb-lg-0">
-        <li class="nav-item judul-navbar">
-          <a class="nav-link  {{ ($title === 'Home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
-        </li>
+        {{-- <li class="nav-item judul-navbar">
+          <a class="nav-link  {{ ($active === 'home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+        </li> --}}
         {{-- <li class="nav-item">
-          <a class="nav-link {{ ($title === 'About') ? 'active' : '' }}" href="/about">About</a>
+          <a class="nav-link {{ ($active === 'about') ? 'active' : '' }}" href="/about">About</a>
         </li> --}}
         <li class="nav-item judul-navbar">
-          <a class="nav-link {{ ($title === 'Blog') ? 'active' : '' }}" href="/blog">Blog</a>
+          <a class="nav-link {{ ($active === 'blog') ? 'active' : '' }}" href="/blog">Blog</a>
         </li>
         <li class="nav-item judul-navbar">
-          <a class="nav-link {{ ($title === 'Post Categories') ? 'active' : '' }}" href="/categories">Categories</a>
+          <a class="nav-link {{ ($active === 'categories') ? 'active' : '' }}" href="/categories">Categories</a>
         </li>  
       </ul>
       
@@ -31,7 +31,7 @@
                   Hi! {{ auth()->user()->username }}
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/dashboard/posts"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li>
                       <form action="/logout" method="post">

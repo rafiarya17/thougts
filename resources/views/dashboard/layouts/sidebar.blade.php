@@ -15,6 +15,14 @@
              My Post
             </a>
           </li>
+
+          {{-- <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
+              <span data-feather="file-text" class="align-text-bottom" ></span>
+             New Category
+            </a>
+          </li> --}}
+          
         </ul>
 
       </div>

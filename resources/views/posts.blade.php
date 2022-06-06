@@ -7,7 +7,7 @@
 
 @if ($posts->count())
     <div class="card mb-3 text-center">
-        <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="">
+        <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->title }}" class="card-img-top" alt="">
         <div class="card-body">
             <h3 class="card-title"> <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark"> {{ $posts[0]->title }} </a></h3>
 
@@ -36,7 +36,7 @@
 
             <div class="card">
                 <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7)"> {{ $post->category->name }} </div>
-                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="...">
+                <img src="https://source.unsplash.com/500x400?{{ $post->title }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p>

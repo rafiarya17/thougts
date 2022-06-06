@@ -40,28 +40,33 @@ use Illuminate\Support\Facades\Route;
 
 // ============================= mengirimkan data ke view ====================
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home",
-        'active' => 'categories',
-    ]);
-});
 
+// Home
+Route::get('/', [PostController::class, 'index']);
+
+// Route::get('/', function () {
+//     return view('home', [
+//         "title" => "Home",
+//         'active' => 'home',
+//     ]);
+// });
 // Route::get('/about', function () {
 //     return view('about', [
 //         "title" => "About",
 //         "name" => "Admin Haltev",
 //         "email" => "haltev@mail.com",
 //         "image" => "admin.png",
-//         'active' => 'categories',
+//         'active' => 'about',
 //     ]);
 // });
 
+// BLOG
 Route::get('/blog', [PostController::class, 'index']);
 
-//halaman single post
+//Halaman Single Post
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
+// CATEGORIES
 Route::get('/categories', function() {
     return view('categories', [
         'title' => 'Post Categories',
@@ -70,6 +75,7 @@ Route::get('/categories', function() {
     ]);
 });
 
+// Halaman Posts by Category
 Route::get('/categories/{category:slug}', function(Category $category) {
     return view('posts', [
         'title' => "Post By Category : $category->name",
@@ -79,10 +85,12 @@ Route::get('/categories/{category:slug}', function(Category $category) {
     ]);
 });
 
+// Halaman Posts by Author
 Route::get('/authors/{author:username}', function(User $author) {
     return view('posts', [
         'title' => "Post By Author : $author->name",
         'posts' => $author->posts->load('category', 'author'),
+        "active" => "blog"
     ]);
 });
 
@@ -105,8 +113,17 @@ Route::post('/register', [RegisterController::class, 'store']);
 // sehingga controller dashboard bisa di hapus
 // Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
+// Halaman CRUD Starts Here
 Route::get('/dashboard', function() {
     return view('dashboard.index');
 })->middleware('auth');
 
+// CRUD Post
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+// CRUD Category
+Route::resource('/dashboard/categories
+', DashboardPostController::class)->middleware('auth');
+
+
+// Halaman CRUD Ends Here

@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         return view('posts', [
             "title" => "Blog",
-            "active" => "posts",
+            "active" => "blog",
             // "posts" => Post::all()
             // mendapatkan data yg paling akhir
             "posts" => Post::latest()->get()
@@ -24,7 +24,7 @@ class PostController extends Controller
         //di ambil dari method Route::get('/posts/{slug}', function($slug) yg ada di web.php
         return view('post', [
             "title" => "Blog",
-            "active" => "posts",
+            "active" => "blog",
             "post" => $post
             
         ]);
