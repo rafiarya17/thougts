@@ -7,7 +7,7 @@
 
 @if ($posts->count())
     <div class="card mb-3 text-center">
-        <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->title }}" class="card-img-top" alt="">
+        <img src="https://source.unsplash.com/1200x900?{{ $posts[0]->title }}" class="card-img-top" alt="">
         <div class="card-body">
             <h3 class="card-title"> <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark"> {{ $posts[0]->title }} </a></h3>
 
